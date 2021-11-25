@@ -1,0 +1,13 @@
+<h1>Agregar autor</h1>
+
+<br>
+<br>
+<%= form_for (@autor) do |a|%>
+    <label>Nombre:</label>
+    <%= a.text_field :nombre %>
+    <br>
+    
+    
+    
+    <%= a.submit "Guardar", :class =>"btn btn-success" %>
+<% end %>    

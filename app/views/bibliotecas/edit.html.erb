@@ -1,0 +1,18 @@
+<h1>Bibliotecas#edit</h1>
+<p>Find me in app/views/bibliotecas/edit.html.erb</p>
+
+
+<h1>Modificar biblioteca nueva</h1>
+
+<br>
+<br>
+<%= form_for (@biblioteca) do |b|%>
+    <label>Nombre:</label>
+    <%= b.text_field :nombre %>
+    <br>
+    <label>Dirección:</label>
+    <%= b.text_field :direccion %>
+    <br>
+    <br>
+    <%= b.submit "Guardar cambios", :class =>"btn btn-primary" %>
+<% end %> 

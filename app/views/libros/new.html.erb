@@ -1,0 +1,15 @@
+<h1>Agregar libro nuevo</h1>
+
+<br>
+<br>
+<%= form_for (@libro) do |l|%>
+    <label>Título:</label>
+    <%= l.text_field :titulo %>
+    <br>
+    <label>Autor:</label>
+    <%= l.select(:autor_id, "",{},{}) do %>
+    <%= options_from_collection_for_select(@autor, :id, :nombre) %>
+    <% end %>        
+    <br>
+    <%= l.submit "Guardar", :class =>"btn btn-success" %>
+<% end %>    

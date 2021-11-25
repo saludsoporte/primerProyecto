@@ -1,0 +1,18 @@
+<br>
+<h1>Agregar libro a biblioteca</h1>
+
+<br>
+<br>
+<%= form_for (@relacion) do |r|%>
+    <label>Biblioteca:</label>
+    <%= r.select(:biblioteca_id, "",{},{}) do %>
+    <%= options_from_collection_for_select(@biblioteca, :id, :nombre) %>
+    <% end %>        
+    <br>
+    <label>Libro:</label>
+    <%= r.select(:libro_id, "",{},{}) do %>
+    <%= options_from_collection_for_select(@libro, :id, :titulo) %>
+    <% end %>        
+    <br>
+    <%= r.submit "Guardar", :class =>"btn btn-success" %>
+<% end %>    

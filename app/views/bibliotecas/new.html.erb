@@ -1,0 +1,13 @@
+<h1>Agregar biblioteca nueva</h1>
+
+<br>
+<br>
+<%= form_for (@biblioteca) do |b|%>
+    <label>Nombre:</label>
+    <%= b.text_field :nombre %>
+    <br>
+    <label>Dirección:</label>
+    <%= b.text_field :direccion %>
+    <br>
+    <%= b.submit "Guardar", :class =>"btn btn-success" %>
+<% end %>    

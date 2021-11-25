@@ -1,0 +1,78 @@
+<style>
+    .table{
+        width: 90%;
+        margin:auto;
+    }
+
+    
+    
+    
+</style>
+<br>
+<h1>Bibliotecas</h1>
+<%# <p>Find me in app/views/bibliotecas/index.html.erb</p> %>
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+    <h5 class="text-white h4">Collapsed content</h5>
+    <span class="text-muted">Toggleable via the navbar brand.</span>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<%= link_to "Cerrar sesi&oacuten", destroy_user_session_path,class: :"btn btn-primary", method: :delete%>
+<%# @libro=Libro.find(1) %>
+<%# @libro.autor.nombre %>
+
+
+<%# image_tag("library.png",size:"250x250",alt: :"Servicios de Salud de S.L.P." ) %>
+
+<br>
+
+<br>
+
+
+<section>
+<h3>Lista de bibliotecas:</h3>
+<br>
+<table class="table">
+<thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Show</th>
+        <th>Editar</th>
+        <th>Borrar</th>
+    </tr>
+</thead>
+<tbody>
+           
+        <% @biblioteca.each do |b| %>
+            <tr>
+                <td><%= b.nombre%>   </td>
+                <td><%= b.direccion%>   </td>
+                <td> <%= link_to "Show", biblioteca_path(b.id), 
+                        :class => "btn btn-primary"%>
+                </td>
+                <td> <%= link_to raw("#{image_tag("pencil_icon.svg",size:"25x25",alt: :"edit", style: :"color:white;" )} Modificar"), edit_biblioteca_path(b.id), 
+                        :class => "btn btn-primary"
+                        %>
+                </td>
+                <td> 
+                    <%= link_to "Eliminar", 
+                        biblioteca_path(b.id), 
+                        data:{:confirm =>"Deseas eliminar?"},
+                        method: :delete, 
+                        :class => "btn btn-danger" %>
+                </td>
+            </tr>
+        <% end %>
+</tbody>
+</table>
+</section>
+

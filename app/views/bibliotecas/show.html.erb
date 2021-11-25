@@ -1,0 +1,53 @@
+<h1>Bibliotecas#show</h1>
+<%# <p>Find me in app/views/bibliotecas/show.html.erb</p> %>
+
+
+<%= link_to "Nueva Biblioteca", new_biblioteca_path, :class => "btn btn-primary" %>
+<%= link_to 'Nuevo Autor', new_autor_path, :class => "btn btn-primary" %>
+<%= link_to 'Nuevo Libro', new_libro_path, :class => "btn btn-primary" %>
+<%= link_to 'Agregar libro a biblioteca', new_relacion_libro_path, :class => "btn btn-primary" %>
+
+<br>
+
+<br>
+
+<style>
+    .table{
+        width: 85%;
+        margin:auto;
+    }
+</style>
+<section>
+<h3>Lista de libros de la biblioteca: <%= @biblioteca.nombre%></h3>
+<br>
+<table class="table table-striped">
+<thead>
+    <tr>
+        <td>Biblioteca</td>
+        <td>Libro</td>
+        <td>Editar</td>
+        <td>Borrar</td>
+    </tr>
+</thead>
+<tbody>
+           
+        <% @relacionlibros.each do |r| %>
+            <tr>
+                <td><%= r.biblioteca.nombre%>   </td>
+                <td><%= r.libro.titulo%>   </td>
+                <td> <%= link_to "Modificar", edit_biblioteca_path(r.biblioteca_id), 
+                        :class => "btn btn-primary"%>
+                </td>
+                <td> 
+                    <%= link_to "Eliminar", 
+                        biblioteca_path(r.biblioteca_id), 
+                        data:{:confirm =>"Deseas eliminar?"},
+                        method: :delete, 
+                        :class => "btn btn-danger" %>
+                </td>
+            </tr>
+        <% end %>
+</tbody>
+</table>
+</section>
+

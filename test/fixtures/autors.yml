@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  apellido_p: MyString
+  apellido_m: MyString
+  nacionalidad: MyString
+  nacimiento: 2021-11-16
+
+two:
+  nombre: MyString
+  apellido_p: MyString
+  apellido_m: MyString
+  nacionalidad: MyString
+  nacimiento: 2021-11-16
